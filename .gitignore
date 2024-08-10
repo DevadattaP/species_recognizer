@@ -1,0 +1,6 @@
+__pycache__
+*.zip
+yolov3.weights
+*.txt
+*.docx
+*.pdf

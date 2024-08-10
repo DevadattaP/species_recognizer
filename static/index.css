@@ -1,0 +1,209 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style for disabled buttons */
+button:disabled {
+    /* Add your styles for disabled buttons here */
+    /* For example, you can remove the hover effect: */
+    pointer-events: none; /* Disable pointer events */
+    opacity: 0.5; /* Reduce opacity */
+    /* Add any other styles as needed */
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.output-image {
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    text-align: center;
+}
+
+li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.info-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+}
+
+.info-container.active {
+    display: block;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#info-btn {
+    background-color: transparent;
+    border: 2px solid #007bff;
+    /* Blue outline */
+    border-radius: 50%;
+    /* Circular shape */
+    width: 30px;
+    /* Adjust as needed */
+    height: 30px;
+    /* Adjust as needed */
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-icon {
+    font-size: 20px;
+    /* Adjust as needed */
+    color: #007bff;
+    /* Blue color */
+}
+
+.close-btn {
+    background-color: transparent;
+    border: 2px solid red;
+    color: #ff0000;
+    /* Red color */
+    font-size: 24px;
+    /* Adjust as needed */
+    width: 30px;
+    /* Adjust as needed */
+    height: 30px;
+    /* Adjust as needed */
+    border-radius: 50%;
+    /* Circular shape */
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    /* Adjust vertical position */
+    right: 10px;
+    /* Adjust horizontal position */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-btn:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    /* Light red background on hover */
+}
+
+#output-container {
+    display: flex;
+    /* Use flexbox to align items horizontally */
+    align-items: center;
+    /* Center items vertically */
+    justify-content: center;
+    /* Center items horizontally */
+}
+
+#image-container,
+#table-container {
+    margin: 0 20px;
+    /* Add margin between image and table */
+}
+
+#image-container img {
+    width: 300px;
+    /* Set fixed width for the image */
+    height: auto;
+    /* Maintain aspect ratio */
+    border: 2px solid #000;
+    /* Add border around the image */
+}
+
+#table-container table {
+    border: 2px solid #000;
+    /* Add border around the table */
+    border-collapse: collapse;
+    /* Collapse table borders */
+    width: 200px;
+    /* Set table width as needed */
+}
+
+#table-container th,
+#table-container td {
+    border: 1px solid #000;
+    /* Add border around table cells */
+    padding: 10px;
+    /* Add padding to table cells */
+    text-align: left;
+    /* Align text to left in table cells */
+}
+
+#table-container th {
+    background-color: #f2f2f2;
+    /* Add background color to table header cells */
+}
+
+/* CSS for table and its cells */
+.classes-table {
+    border-collapse: collapse; /* Collapse table borders */
+    width: 100%; /* Table takes full width of container */
+}
+
+.classes-table td {
+    border: 1px solid #000; /* Border for table cells */
+    padding: 8px; /* Add padding to cells for spacing */
+}

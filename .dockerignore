@@ -1,0 +1,9 @@
+Dockerfile
+__pycache__
+test_images
+procedure.txt
+*.docx
+*.pdf
+.gitignore
+.git
+*.zip

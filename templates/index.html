@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Species Recognition</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css')}}">
+</head>
+
+<body>
+    <h1>Species Recognition</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <input id="file-input" type="file" name="file" accept="image/*" required />
+        <button type="submit" id="recognize-btn">Recognize</button>
+        <button type="submit" id="reset-btn" onclick="resetForm()">Reset</button>
+        <button type="button" id="info-btn">
+            <span class="info-icon">i</span>
+        </button>
+    </form>
+
+    <!-- Floating container -->
+    <div class="info-container" id="info-container">
+        <span class="close-btn" onclick="closeInfo()">X</span>
+        <h2>Info</h2>
+        <p>
+            This system allows you to upload an image and recognize species in the
+            image using YOLO & COCO.
+        </p>
+
+        <p><strong>YOLO (You Only Look Once):</strong></p>
+        <p>
+            YOLO is a deep learning algorithm used for real-time object detection
+            tasks. Unlike traditional methods, YOLO performs both object
+            localization and classification in a single pass through the neural
+            network, making it very efficient for real-time applications.
+        </p>
+        <p><strong>COCO (Common Objects in Context):</strong></p>
+        <p>
+            COCO is a large-scale dataset for object detection, segmentation, and
+            captioning. It contains over 200,000 images labeled with more than 80
+            different object categories. COCO is commonly used as a benchmark
+            dataset for evaluating object detection models.
+            <!-- Button to open the container -->
+            <a href="#" id="classesBtn" onclick="toggleClasses()">Click here to check supported classes</a>
+        </p>
+        
+        <h2>Guide for Using Species Recognition System</h2>
+        <p>Follow these steps to use the system:</p>
+        <ol>
+            <li>Click on the "Choose File" button to select an image file.</li>
+            <li>
+                Click on the "Recognize" button to start the recognition process.
+            </li>
+            <li>
+                After the recognition is complete, the image will be shown with the
+                identified species, and the recognized objects will be displayed next 
+                to the image.
+            </li>
+        </ol>
+        <p><strong>Output Format:</strong></p>
+        <p>The output consists of object names followed by their corresponding confidence levels.</p>
+        <p>The confidence level indicates how certain the model is in its prediction of detecting a particular object. A higher confidence score means that the model is more confident in its prediction, while a lower confidence score indicates less certainty.</p>
+    
+    </div>
+    <!-- Container for supported classes (initially hidden) -->
+    <div id="classes-container" class="info-container">
+        <h2>Supported Classes</h2>
+        <button id="closeClassesBtn" class="close-btn" onclick="toggleClasses()">X</button>
+        <table class="classes-table">
+            {% for row in supported_classes %}
+                <tr>
+                    {% for class in row %}
+                        <td>{{ class }}</td>
+                    {% endfor %}
+                    {% if row|length < 10 %}
+                        {% for _ in range(0, 10 - row|length) %}
+                            <td></td>
+                        {% endfor %}
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <br />
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+    <div id="output-container">
+        <div id="image-container"></div>
+        <div id="table-container"></div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js')}}"></script>
+</body>
+
+</html>
